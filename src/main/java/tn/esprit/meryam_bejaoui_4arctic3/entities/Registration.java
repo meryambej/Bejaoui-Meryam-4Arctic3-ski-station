@@ -1,17 +1,13 @@
 package tn.esprit.meryam_bejaoui_4arctic3.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Registration implements Serializable {
@@ -20,8 +16,10 @@ public class Registration implements Serializable {
     private long numRegistration ;
     private int numWeek ;
     @ManyToOne
-    Skier sk;
+    @JoinColumn(name = "skier_id")
+    private Skier skier;
     @ManyToOne
-    Course crs ;
+    @JoinColumn(name = "course_id")
+    private Course course ;
 
 }

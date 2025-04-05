@@ -31,9 +31,10 @@ public class Skier implements Serializable {
     //OneToOne(cascade=CascadeType.MERGE) //Mabaadhom diima fel entity manager
    // @OneToOne(cascade=CascadeType.DETACH)   //moch mabaadhom  fel entity manager
             //OneToOne(cascafe=CascadeType.REFResh° REINITIALISER
-    Subscription sub ;
-    @OneToMany(mappedBy = "sk")
-    Set<Registration> registrations ;
+    @JoinColumn(name = "subscription_id")
+            Subscription subscription ;
+    @OneToMany(mappedBy = "skier", cascade = CascadeType.ALL)
+    private Set<Registration> registrations;
     //List<Registration> registrations ;
     @ManyToMany(mappedBy = "skiers")
     Set<Piste> pistes;

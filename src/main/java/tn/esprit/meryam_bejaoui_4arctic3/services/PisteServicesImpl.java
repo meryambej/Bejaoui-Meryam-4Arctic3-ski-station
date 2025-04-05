@@ -10,7 +10,6 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 public class PisteServicesImpl implements IPisteServices {
-    @Autowired
     private IPisteRepository pisteRepository;
     @Override
     public Piste addPiste(Piste piste) {

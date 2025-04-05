@@ -10,28 +10,28 @@ import tn.esprit.meryam_bejaoui_4arctic3.services.ISkierServices;
 import java.util.List;
 
 @RestController
-@RequestMapping("piste")
+@RequestMapping("/pistes")
 public class PistRestController {
     @Autowired
     private IPisteServices pisteServices;
 
-    @PostMapping("add")
+    @PostMapping("/add")
     public Piste addPiste(@RequestBody Piste piste) {
         return pisteServices.addPiste(piste);
     }
-    @PutMapping("update")
+    @PutMapping("/update")
     public Piste updatePiste(@RequestBody Piste piste) {
         return pisteServices.updatePiste(piste);
     }
-    @GetMapping("get/{numPiste}")
+    @GetMapping("/get/{numPiste}")
     public Piste retrievePiste(@PathVariable Long numPiste) {
         return pisteServices.retrievePiste(numPiste);
     }
-    @DeleteMapping("delete/{numPiste}")
+    @DeleteMapping("/delete/{numPiste}")
     public void deletePiste(@PathVariable Long numPiste) {
         pisteServices.deletePiste(numPiste);
     }
-    @GetMapping("all")
+    @GetMapping("/all")
     public List<Piste> retrieveAllPiste() {
         return pisteServices.retrieveAllPiste();
     }

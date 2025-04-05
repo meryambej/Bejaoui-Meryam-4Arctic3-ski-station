@@ -1,17 +1,13 @@
 package tn.esprit.meryam_bejaoui_4arctic3.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Course implements Serializable {
@@ -23,6 +19,9 @@ public class Course implements Serializable {
     private Support support ;
     private float price ;
     private int timeSlot ;
-    @OneToMany(mappedBy = "crs")
+    @OneToMany(mappedBy = "course")
     Set<Registration> registrations ;
+    @ManyToOne
+    @JoinColumn(name = "instructor_id")
+    private Instructor instructor;
 }

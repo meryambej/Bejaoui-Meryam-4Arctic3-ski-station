@@ -6,6 +6,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -25,9 +26,7 @@ public class Piste implements Serializable {
     int length ;
     int slope ;
     @ManyToMany
-    @ToString.Exclude
-    @JsonIgnore
-    Set<Skier> skiers ;
+    private Set<Skier> skiers = new HashSet<>();
 
 }
 
